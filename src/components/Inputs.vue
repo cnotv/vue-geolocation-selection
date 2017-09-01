@@ -1,9 +1,11 @@
 <template>
   <div class="o-inputs">
-    <h1>{{ msg }}</h1>
+    <h1>Insert point coordinate</h1>
     <input type="number" name="latitude" step="any" v-model="latitude" placeholder="latitude" pattern="[0-9.-]">
     <input type="number" name="longitude" step="any" v-model="longitude" placeholder="longitude" pattern="[0-9.-]">
-    <input type="range" name="radius" v-model="radius" min="0" max="1000">
+    <h1>Select range</h1>
+    <input type="range" name="radius" step="100" v-model="radius" min="0" max="5000">
+    <label>{{ radius / 1000 }} Km</label>
 
     <!-- <pre>{{GeoJSON}}</pre> -->
 
@@ -35,24 +37,21 @@ export default {
   name: 'inputs',
   data() {
     return {
-      msg: 'Insert coordinates and select radius',
-      latitude: '52.5247258',
-      longitude: '13.3930329',
-      radius: '123',
+      latitude: '52.524474',
+      longitude: '13.393001',
+      radius: '1000',
       GeoJSON: {
         type: 'FeatureCollection',
-        features: [
-          {
-            type: 'GeometryCollection',
-            geometry: {
-              type: 'Circle',
-              coordinates: [],
-              properties: {
-                radius: '',
-              },
+        features: [{
+          type: 'GeometryCollection',
+          geometry: {
+            type: 'Circle',
+            coordinates: [],
+            properties: {
+              radius: '',
             },
           },
-        ],
+        }],
       },
     };
   },
@@ -81,5 +80,11 @@ input[type=number]::-webkit-outer-spin-button {
     -moz-appearance: none;
     appearance: none;
     margin: 0; 
+}
+
+pre {
+  padding: 1rem;
+  background-color: #fff;
+  color: #2c3e50;
 }
 </style>

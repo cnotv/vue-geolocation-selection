@@ -2,6 +2,8 @@
 
 >  GeoJSON handling with string output
 
+![App preview](./preview.jpg)
+
 ## Requirements
     node: 4.0.0
 
@@ -24,3 +26,4 @@ npm run build
 ```
 
 This app is created using a [vue-webpack-boilerplate](http://vuejs-templates.github.io/webpack/).
+The map is loaded through the component [vue-google-maps](https://github.com/xkjyeah/vue-google-maps).

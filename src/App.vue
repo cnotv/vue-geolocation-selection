@@ -19,6 +19,12 @@ export default {
     Maparea,
     Inputs,
   },
+  data() {
+    return {
+      latitude: '52.524474',
+      longitude: '13.393001',
+    };
+  },
 };
 </script>
 
@@ -26,13 +32,12 @@ export default {
 body,html {
   margin: 0;
   padding: 0;
-  // overflow: hidden;
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #fff;
 
   display: flex;
 }
@@ -40,13 +45,9 @@ body,html {
 main {
   width: 75vw;
   height: 100vh;
-  padding: 1rem;
-  box-sizing: content-box;
 }
 aside {
-  // overflow-y: scroll;
-  // height: 100vh;
-  background-color: #f1f1f1;
+  background-color: #d61f26;
   width: 25vw;
   min-width: 300px;
   padding: 2rem;
