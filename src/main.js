@@ -10,4 +10,11 @@ new Vue({
   el: '#app',
   template: '<App/>',
   components: { App },
+  data() {
+    return {
+      latitude: 52.524474,
+      longitude: 13.393001,
+      radius: 1000,
+    };
+  },
 });

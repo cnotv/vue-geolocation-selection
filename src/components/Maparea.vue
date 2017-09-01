@@ -30,8 +30,10 @@ export default {
   name: 'maparea',
   data() {
     return {
-      center: { lat: 52.524474, lng: 13.393001 },
-      radius: 1000,
+      center: {
+        lat: this.$root.latitude,
+        lng: this.$root.longitude },
+      radius: this.$root.radius,
     };
   },
   methods: {

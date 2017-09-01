@@ -5,6 +5,7 @@
     </main>
     <aside>
       <inputs></inputs>
+      <fields></fields>
     </aside>
   </div>
 </template>
@@ -12,18 +13,14 @@
 <script>
 import Maparea from './components/Maparea';
 import Inputs from './components/Inputs';
+import Fields from './components/Fields';
 
 export default {
   name: 'app',
   components: {
     Maparea,
     Inputs,
-  },
-  data() {
-    return {
-      latitude: '52.524474',
-      longitude: '13.393001',
-    };
+    Fields,
   },
 };
 </script>
