@@ -1,5 +1,24 @@
 <template>
-  <pre>{{GeoJSON}}</pre>
+    <pre>
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "GeometryCollection",
+      "geometry": {
+        "type": "Circle",
+        "coordinates": [
+          {{ $root.center.lat }},
+          {{ $root.center.lng }}
+        ],
+        "properties": {
+          "radius": "{{ $root.radius }}"
+        }
+      }
+    }
+  ]
+}
+    </pre>
 </template>
 
 <script>
@@ -15,8 +34,8 @@ export default {
           geometry: {
             type: 'Circle',
             coordinates: [
-              this.$root.latitude,
-              this.$root.longitude,
+              this.$root.center.lat,
+              this.$root.center.lng,
             ],
             properties: {
               radius: this.$root.radius,

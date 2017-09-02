@@ -1,16 +1,17 @@
 <template>
   <gmap-map
-    :center="center"
+    :center="$root.center"
     :zoom="14"
     style="width: 100%; height: 100%"
+    @click="updateCenter($event)"
   >
 
     <gmap-circle 
-      :center="center"
-      :radius="radius"
-      :editable="true"
+      :center="$root.center"
+      :radius="$root.radius"
+      :editable="false"
       :draggable="true"
-      @dragend="updateCenter($event)"
+      @drag="updateCenter($event)"
     ></gmap-circle>
 
   </gmap-map>
@@ -30,16 +31,14 @@ export default {
   name: 'maparea',
   data() {
     return {
-      center: {
-        lat: this.$root.latitude,
-        lng: this.$root.longitude },
-      radius: this.$root.radius,
     };
   },
   methods: {
-    updateCenter(polyCenter) {
-      const point = polyCenter.getAt().getAt();
-      this.edited = point;
+    updateCenter(newCenter) {
+      this.$root.center = {
+        lat: newCenter.lat(),
+        lng: newCenter.lng(),
+      };
     },
   },
 };
