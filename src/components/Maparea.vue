@@ -6,12 +6,18 @@
     @click="updateCenter($event)"
   >
 
+
+    <gmap-marker 
+      :position="$root.center"
+    >
+    </gmap-marker>
+
     <gmap-circle 
       :center="$root.center"
       :radius="$root.radius"
       :editable="false"
-      :draggable="true"
-      @drag="updateCenter($event)"
+      :draggable="false"
+      @click="updateCenter($event)"
     ></gmap-circle>
 
   </gmap-map>
@@ -34,10 +40,10 @@ export default {
     };
   },
   methods: {
-    updateCenter(newCenter) {
+    updateCenter(mouseArgs) {
       this.$root.center = {
-        lat: newCenter.lat(),
-        lng: newCenter.lng(),
+        lat: mouseArgs.latLng.lat(),
+        lng: mouseArgs.latLng.lng(),
       };
     },
   },
